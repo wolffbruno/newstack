@@ -1,11 +1,16 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import { useAuthenticate } from "./hooks/useOpenStack";
 
 export default function Home() {
+  const { token = "", login, logout } = useAuthenticate();
+
   return (
     <div className="flex flex-col bg-background justify-stretch min-h-screen gap-4 p-8 font-sans">
-
+      OPENSTACK TOKEN: {token}
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-medium tracking-tight">Máquinas virtuais</h1>
         <Button size="sm">
